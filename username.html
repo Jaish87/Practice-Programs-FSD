@@ -1,0 +1,34 @@
+<html>
+    <head>
+    </head>
+    <body>
+    </body>
+
+    <script>
+        
+        function execute(arr){
+            let result_arr=[];
+            let new_arr = JSON.parse(arr);
+            console.log(new_arr);
+            
+            for(var i=0;i<new_arr.length;i++)
+            {
+                var new_obj = new_arr[i];
+                result_arr.push(new_obj.username);
+               // console.log(result_arr);
+            }
+            console.log(result_arr);
+        }
+
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open("get","https://jsonplaceholder.typicode.com/users");
+        httpRequest.send();
+        httpRequest.onreadystatechange= function(){
+            if(httpRequest.readyState == 4 && httpRequest.status == 200){
+                let arr = httpRequest.responseText;
+                execute(arr);
+            }
+        }
+    </script>
+
+</html>

@@ -1,0 +1,15 @@
+<html>
+    <head></head>
+    <body>
+        <input type="datetime-local" id="datetime">
+        <button onclick="check()">click</button>
+        <script>
+            function check(){
+                var date=document.getElementById("datetime").value;
+                console.log(date);
+                var mydate=date.split("-");
+                console.log(mydate);
+            }
+        </script>
+    </body>
+</html>

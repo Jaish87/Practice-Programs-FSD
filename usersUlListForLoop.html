@@ -1,0 +1,43 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <ul id="users">
+
+        </ul>
+        <script>
+            var users=[
+                {
+                name:"jaishri",
+                address: "abc",
+                phoneNumber:"12344"
+            },
+            {       
+             name:"shri",
+             address: "abcd",
+             phoneNumber:"12345544"
+            },
+            ]
+            var index=0;
+            var usersList=" ";
+            // while(index<users.length){
+            //     var user=users[index];
+            //    // console.log(user);
+            //     var userDetails= "<li>"+ user.name + "  "+ user.address+ " " +user.phoneNumber + "</li>";
+            //   //  console.log(userDetails);
+            //     usersList=usersList+userDetails;
+            //     index++;
+            //    // console.log(usersList);
+            // }
+
+            for(index=0;index<users.length;index++){
+                var user=users[index];
+                var userDetails= "<li>"+ user.name + "  "+ user.address+ " " +user.phoneNumber + "</li>";
+                usersList=usersList+userDetails;
+            }
+            
+            document.getElementById("users").innerHTML=usersList;
+        </script>
+    </body>
+</html>

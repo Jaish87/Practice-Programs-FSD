@@ -1,0 +1,29 @@
+<html>
+    <head>
+
+    </head>
+
+     <body>
+
+           <form>
+                 EmailId <input type="text" id="emailId" placeholder="enter username">
+                 Password <input type="password" id="password" placeholder="enter password">
+                 <button onclick="login()">Login</button>
+           </form>
+           </body>
+           
+           <script>
+           
+            function login(){
+                 
+                 var username;
+                 var password;
+                 username = document.getElementById("emailId").value;
+                 password = document.getElementById("password").value;
+
+                 var result=(username=="jai" && password=="jai")?"login success" :"login failure"
+                    console.log(result);
+                  
+            }
+ </script>
+ </html>

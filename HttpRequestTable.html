@@ -1,0 +1,51 @@
+<html>
+    <head></head>
+    <body>
+        <table></table>
+        <script>
+            var details;
+            var httpRequest=new XMLHttpRequest();
+            httpRequest.open("get","https://fakestoreapi.com/products");
+            httpRequest.send();
+            httpRequest.onreadystatechange=function(){
+                if(httpRequest.readyState==4 || httpRequest.readyState==200){
+                     details=JSON.parse(httpRequest.responseText);
+                     console.log(details);
+                     var table=document.querySelector("table");
+                     
+                    // console.log(data);
+                     generateTable(table,details);  
+                     generateTableHead(table, details[0]);
+                } 
+            }
+            function generateTableHead(table,details1){
+                var data=Object.keys(details1);
+                var thead= table.createTHead();
+                var row=thead.insertRow();
+                for(var key of data){
+                    var th=document.createElement("th");
+                    var text=document.createTextNode(key);
+                    th.appendChild(text);
+                    row.appendChild(th);
+                }  
+            }
+            function generateTable(table,details1){
+                
+                for(var element of details1){
+                    var row=table.insertRow();
+                    for(var key in element){
+                        var cell=row.insertCell();
+                        var text=document.createTextNode(element[key]);
+                        cell.appendChild(text);
+                    }
+                }
+            }
+            //console.log(data);
+            // var table=document.querySelector("table");
+            // var data=Object.keys(data);
+            // generateTable(table,data);  
+            // generateTableHead(table, data);
+            
+        </script>
+    </body>
+</html>

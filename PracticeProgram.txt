@@ -1,0 +1,375 @@
+//to copy an array into other array
+var fruits=["banana", "orange"];
+var newfruits=[...fruits];
+console.log(newfruits);
+
+//concat function
+var s1="hello how";
+var s2="are you"
+console.log(s1.concat(s2));
+var s3="doing"
+console.log(s1.concat(s2,s3));
+.............
+var a=[10, 20, 30];
+var b=[40,50,60];
+var c=[100,120]
+console.log(a.concat(b,c));
+
+//splice function
+var a=[10, 20, 30, 40,50];
+console.log(a.splice(0,1,'hi','bye'));
+console.log(a);
+ 10 ]
+[ 'hi', 'bye', 20, 30, 40, 50 ]
+
+//Array.at
+var a=[10, 20, 30, 40, 50, 60];
+console.log(a.at(0));
+
+//Array.entries()
+//Array.entries()
+var names=["jaishri", "ashwini","jaya","kritika"];
+var iter=names.entries();
+console.log(iter);
+for(let element of iter){
+    console.log(element);
+}
+[ 0, 'jaishri' ]
+[ 1, 'ashwini' ]
+[ 2, 'jaya' ]
+[ 3, 'kritika' ]
+
+
+
+//Array.every()
+var age=[18, 20, 25, 5, 19];
+function isBigEnough(index, element, array){
+    return element>=18;
+}
+console.log(age.every(isBigEnough));
+//false returns boolean value
+
+//Array.fill()
+ var a=[10, 20, 30,50,60];
+ console.log(a.fill(0,2));
+//first para is fill with then second para is staring index.
+//[ 10, 20, 0, 0, 0 ]
+
+//Array.filter()
+var age=[12, 5, 8, 130, 44];
+function isBigEnough(value) {
+    return value >= 10
+  }
+  
+  let filtered = age.filter(isBigEnough);
+  console.log(filtered);
+  // 12, 130, 44 it returns new array
+
+  //Array.find()
+  var age=[12, 5, 8, 130, 44];
+function isBigEnough(value) {
+    return value >= 10
+  }
+  console.log(age.find(isBigEnough));
+  //returns first element that matches the condition else returns undefined.
+  //12
+
+
+  //Array.findIndex()
+  var age=[12, 5, 8, 130, 44];
+function isBigEnough(value) {
+    return value >= 10
+  }
+  console.log(age.findIndex(isBigEnough));
+  //returns first element index that matches the condition else returns -1.
+  //0
+
+
+//Array.forEach
+var a=[10,20,30,40];
+a.forEach(function(e){
+    console.log(e);
+})
+......
+ var a=[10,20,30];
+ a.forEach(e =>{
+     console.log(e);
+ })
+
+ //Is prime using filter().
+var a=[10, 2, -1, 4, 6, 11, 13];
+function isPrime(num){
+    for(var i=2;num>i;i++){
+        if(num%2==0){
+            return false;
+        }
+        return num>1;
+    }
+}
+console.log("prime Numbers are"+ a.filter(isPrime));
+
+
+//Write a JavaScript program to sort the items of an array.
+var arr1=[-3,8,7,6,5,-4,3,2,1];
+arr2=arr1.sort(function(a,b){return a-b});
+console.log(arr2);
+
+//Write a simple JavaScript program to join all elements of the following array into a string.
+var myColor = ["Red", "Green", "White", "Black"];
+console.log(myColor.toString());
+console.log(myColor.join("+"));
+
+
+//Write a JavaScript program to find the most frequent item of an array.
+var arr1=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3, 3, 'a'];
+var mf=1;
+var m=0;
+var item;
+for(var i=0;i<arr1.length;i++){
+    for(var j=i;j<arr1.length;j++){
+        if(arr1[i]==arr1[j])
+        m++;
+        if(mf<m){
+            mf=m;
+            item=arr1[i];
+        }
+    }
+    m=0;
+}
+console.log("Most Frequent word is " + " " +item + " " + mf + " " + "times")
+
+//Write a JavaScript program which prints the elements of the following array.
+var a = [[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]];
+for(var i=0;i<a.length;i++){
+    console.log("row "+i);
+    for(var j=0;j<a[i].length;j++){
+       // console.log("row" + i);
+        console.log(a[i][j]);
+    }
+}
+
+//Write a JavaScript program to remove duplicate items from an array.Considering case sensitive data.
+var colors= ["red","orange","yellow", "pink","red","yellow","red","Red"];
+var newColors=[];
+var colorVal=[];
+var c;
+
+for(var i=0;i<colors.length;i++){
+    c=colors[i].toLowerCase();
+    colorVal.push(c)
+}
+
+for(var i=0;i<colorVal.length;i++){
+    if(newColors.includes(colorVal[i])){
+        continue;
+    }
+    else{
+        newColors.push(colorVal[i]);
+    }
+}
+colorVal=newColors;
+console.log(colorVal);
+
+
+//Write a JavaScript program to find the leap years in a given range of years.
+var years=[2000,2013,2022];
+for(var i=0;i<years.length;i++){
+    if(years[i] %4==0 && years[i] %100==0 || years[i]%100==0 && years[i]%400==0){
+        console.log(years[i] +" "+ "is a leap year");
+    }
+    else{
+        console.log(years[i] +" "+ "is not a leap year");
+    }
+}
+
+
+//Write a JavaScript function to remove. 'null', '0', '""', 'false', 'undefined' and 'NaN' values from an array.
+var a= [NaN, 0, 15, false, -22, '',undefined, 47, null];
+var array=[];
+for(var i=0;i<a.length;i++){
+    if(a[i]==null || a[i]==0 || a[i]==false || a[i]==undefined || a[i]==NaN ||a[i]==''){ 
+     continue;
+    }
+    else{
+       array.push(a[i]);
+    }
+}
+console.log(array);
+
+
+//Write a JavaScript function to sort the following array of objects by title value.
+var library = [ 
+    { author: 'Bill Gates', title: 'The Road Ahead', libraryID: 1254},
+    { author: 'Steve Jobs', title: 'Walter Isaacson', libraryID: 4264},
+    { author: 'Suzanne Collins', title: 'Mockingjay: The Final Book of The Hunger Games', libraryID: 3245}
+    ];
+
+    console.log(library.sort(function(a, b){
+        let x=a.title.toLowerCase();
+        let y=b.title.toLowerCase();
+        if(x>y){return 1};
+        if(x<y){return -1};
+        return 0;
+    }));
+---------------------------------------------------------------------------
+String Based Programs:
+-----------------------
+    var str="hello how are you doing";
+for(var i=str.length-1;i>=0;i--){
+    console.log(str[i]);
+}
+// Reverse the String
+var s="hello how are you doing";
+var arr =[];
+for(var i=s.length-1;i>=0;i--){
+    arr.push(s[i]);
+}
+var k=arr.join(' ');
+console.log(k);
+
+
+//Remove duplicates from the string
+var s1="hello how are you doing hello doing";
+var arr =[];
+var s=s1.split(' ');
+console.log(s);
+ for(var i=0;i<s.length;i++){
+     if(arr.includes(s[i])){
+        continue;
+     }
+     else{
+         arr.push(s[i]);
+     }
+ }
+ console.log(arr.join(' '));
+
+ //Reverse each word in itself 
+var s="hello how are you doing";
+var arr=[];
+var str=s.split(" ");
+console.log(str);
+for(var i=0;i<str.length;i++){
+    for(var j=str[i].length-1;j>=0;j--){
+        arr=arr+str[i].substring(j,j+1); 
+        console.log(arr); 
+    }   
+}
+console.log(arr);
+
+
+//Check Palindrome
+function checkPalindrome(){
+    var s="madam";
+    for(var i=0;i<s.length;i++){
+        if(s.charAt(i)!=(s.charAt(s.length-1))){
+            return false;
+        }
+        return true;
+    } 
+}
+console.log(checkPalindrome());
+
+//Reverse the string in this order : doing you are how hello
+var s="hello how are you doing";
+var s1=s.split(' ');
+var arr=[];
+console.log(s1);
+for(i=s1.length-1;i>=0;i--){
+    arr.push(s1[i]);
+}
+arr=arr.join(' ');
+console.log(arr);
+
+//httpRequest and Response
+<html>
+    <head>
+
+    </head>
+
+     <body>
+
+         <script>
+          
+          
+             var httpRequest  =  new XMLHttpRequest();
+
+             httpRequest.open("get", "https://fakestoreapi.com/products");
+
+             httpRequest.send();
+
+             httpRequest.onreadystatechange = function(){
+                 //console.log("state changed", httpRequest.readyState);
+                // console.log("status", httpRequest.status);
+                     if(httpRequest.readyState == 4 && httpRequest.status == 200){
+                          var data=httpRequest.responseText;
+                          //console.log(data);
+                          var newData=JSON.parse(data);
+                         console.log(newData);
+                         for(var i=0;i<=newData.length;i++){
+                             
+                             console.log(newData[i].id+ "." +newData[i].title);
+                         }
+                     }
+             }
+
+           
+            
+            
+          </script>
+
+     </body>
+</html>
+
+//forEach to access an array:
+var arr=[3,5,6,10,70];
+arr.forEach(function(element){
+ console.log(element);
+})
+
+//Anonymous Function
+
+function f1(a){
+a();
+}
+f1(function(){
+    console.log("This is anonymous function");
+})
+.....................
+function showData(a){
+a();
+}
+showData(function(){
+    console.log("Hello world!")
+})
+.................................
+
+var show=function(){
+    console.log("Hello");
+};
+show();
+.................................
+var sum=function(a,b){
+    var c=a+b;
+    console.log(c);
+
+}
+sum(2,3);
+................................
+setTimeout(function(){
+console.log("Timeout for 1000sec"), 1000
+});
+...............................
+(function(){
+    console.log("I will be call as soon as page is loaded")
+
+})();
+......................................
+var a=[10,20,30,40,50];
+a.forEach(function (item){
+    console.log(item);
+});
+
+//Show current Date and time
+var date=new Date();
+console.log(date.getDate() + "/" +date.getMonth()+1 +"/" +date.getFullYear() +" "+ date.getHours() + ":" +date.getMinutes() +":"+date.getSeconds());
+19/01/2022 20:16:48

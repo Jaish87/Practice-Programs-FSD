@@ -1,0 +1,36 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        
+        <h2>Hello, How are You?</h2>
+        <span> Select language to translate:</span>
+        <select id="language" onchange="displayTraslation()">
+            <option value="select">Select</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Telgu">Telgu</option>
+            <option value="Marathi">Marathi</option>
+            <option value="Gujarati">Gujarati</option>
+        </select>
+        <h1 id="content"></h1>
+        <script>
+            //displayTraslation();// To dipaly the traslation as page loads
+           function displayTraslation(){
+            
+               var choice;
+               var content;
+               choice=document.getElementById("language").value;
+               content=document.getElementById("content");
+               switch(choice){
+                case "select": content.innerHTML=""; break;   
+                case "Hindi": content.innerHTML="नमस्ते आप कैसे हैं?"; break;
+                case "Telgu": content.innerHTML="హలో, ఎలా ఉన్నారు?"; break;
+                case "Marathi": content.innerHTML="नमस्कार, कसे आहात?"; break;
+                case "Gujarati": content.innerHTML="હેલો, કેમ છો?"; break;
+               }
+           }
+        </script>
+
+    </body>
+</html>

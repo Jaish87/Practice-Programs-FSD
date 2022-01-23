@@ -1,0 +1,49 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <table></table>
+        <script>
+            let mountains = [
+  { name: "Monte Falco", height: 1658, place: "Parco Foreste Casentinesi" },
+  { name: "Monte Falterona", height: 1654, place: "Parco Foreste Casentinesi" },
+  { name: "Poggio Scali", height: 1520, place: "Parco Foreste Casentinesi" },
+  { name: "Pratomagno", height: 1592, place: "Parco Foreste Casentinesi" },
+  { name: "Monte Amiata", height: 1738, place: "Siena" }
+];
+//Creating table headers with header name
+function generateTableHead(table, data){
+    var thead=table.createTHead();//create thead
+    var row=thead.insertRow();//insert row to add headers
+    for(let key of data){ //using for..of to access keys in the object array
+        let th=document.createElement("th");//create th
+        let text=document.createTextNode(key);// add textNode with key -name
+        th.appendChild(text);//append text to th
+        row.appendChild(th);//append to to row
+    }
+}
+//Creating table rows 
+//So for..of to create each row of the objec† and then another for..in loop
+//to iterate the objects itself
+function generateTable(table, data){
+    for(let element of data){//this will create 4 rows size of array
+        console.log(element);//this is each object in the array
+        let row=table.insertRow();
+        for( var key in element){// this will iterate the each object in the array
+            console.log(key);// this is the key in the object that is name height and place
+            let cell=row.insertCell();
+            let text=document.createTextNode(element[key]);// element[key] vlaue of each key in the element
+           // console.log(element[key]);
+            cell.appendChild(text);
+        }
+    }
+}
+var table=document.querySelector("table");
+var data=Object.keys(mountains[0]);
+generateTable(table,mountains);  
+generateTableHead(table, data);
+
+        </script>
+    </body>
+</html>

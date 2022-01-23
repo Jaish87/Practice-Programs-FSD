@@ -1,0 +1,53 @@
+<html>
+    <head>
+    </head>
+     <body>
+        <input type="text" id="username" onkeyup="checkUserName()">
+        <span id="name"></span>
+         <script>
+             var users=[];
+             var httpRequest  =  new XMLHttpRequest();
+
+             httpRequest.open("get", "https://jsonplaceholder.typicode.com/users");
+
+             httpRequest.send();
+
+             httpRequest.onreadystatechange = function(){
+                 //console.log("state changed", httpRequest.readyState);
+                // console.log("status", httpRequest.status);
+                     if(httpRequest.readyState == 4 && httpRequest.status == 200){
+                          var data=httpRequest.responseText;
+                          //console.log(data);
+                          var newData=JSON.parse(data);
+                          console.log(newData);
+                          console.log("Details Are:");    
+                          newData.forEach(element => {
+                            console.log(element.id +"."+element.username);
+                            users.push(element.username);
+                        }); 
+                        checkUserName1(users);
+                    }     
+             }  
+             function checkUserName1(users){
+               // console.log(users);
+                 var user=document.getElementById("username").value;
+                 if(users.includes(user)){
+                     return true;
+                 }
+                 else{
+                     return false;
+                 }
+                 
+            }
+             function checkUserName(){
+                var result=checkUserName1(users);
+               if(result==true){
+                   document.getElementById("name").innerHTML="username already exist";
+               }
+               else{
+                document.getElementById("name").innerHTML="username available";
+               }
+             }     
+          </script>
+     </body>
+</html>

@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <style>
+            body{
+                margin-top: 30px;
+            }
+            button{
+               
+                background-color: blue;
+                color:white;
+                padding: 10px 30px 10px 30px
+            }
+            
+        </style>
+
+    </head>
+    <body>
+        <form>
+            <fieldset>
+            <legend>User Login</legend>
+            <center>
+            <input id="email" type="text" placeholder="Enter email Id or Phone Number" size="40"><br><br>
+            <input id="password" type="password" placeholder="password" size="40"><br><br>
+            <button onClick="login()">Login</button>
+             </center>
+            </fieldset>
+        </form>
+
+        <script>
+            function login(){
+                
+                
+                var email="jai@gmail.com";
+                var password="jai";
+                var phoneNumber="4254254250";
+
+                var uemail;
+                var upassword;
+
+                uemail=document.getElementById("email").value;
+                upassword=document.getElementById("password").value;
+                
+                
+                event.preventDefault();
+
+                if((uemail==email || uemail==phoneNumber) && (upassword==password)){
+                   
+                    //console.log("login success");   
+                    alert("Login Success");
+                }
+                else{
+                   // console.log("login Failure");
+                    alert("Incorrect Email/Phonenumber or Password");
+                }
+            }
+            
+        </script>
+    </body>
+</html>

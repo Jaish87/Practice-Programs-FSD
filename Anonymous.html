@@ -1,0 +1,33 @@
+<html>
+    <head>
+    </head>
+     <body>
+
+         <script>
+             var httpRequest  =  new XMLHttpRequest();
+
+             httpRequest.open("get", "https://fakestoreapi.com/products");
+
+             httpRequest.send();
+
+             httpRequest.onreadystatechange = function(){
+                 //console.log("state changed", httpRequest.readyState);
+                // console.log("status", httpRequest.status);
+                     if(httpRequest.readyState == 4 && httpRequest.status == 200){
+                          var data=httpRequest.responseText;
+                          //console.log(data);
+                          var newData=JSON.parse(data);
+                         console.log(newData);
+                        //  for(var i=0;i<=newData.length;i++){
+                             
+                        //      console.log(newData[i].id+ "." +newData[i].title);
+                        //  }
+                        console.log("Details Are:");    
+                        newData.forEach(element => {
+                            console.log(element.id +"."+element.title);
+                        });
+                     }
+             }  
+          </script>
+     </body>
+</html>

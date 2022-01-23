@@ -1,0 +1,105 @@
+<html>
+    <head></head>
+    <body>
+        <input type="datetime-local" id="selectDate">
+        <button onclick="checkDate()">Check</button>
+        <p id="mydate"></p>
+        <script>
+            var date1=new Date();
+            var currentHour=date1.getHours();
+            var currentMinutes=date1.getMinutes();
+            var currentSec=date1.getSeconds();
+            var currentDate=date1.getDate();
+            var currentMonth=date1.getMonth()+1;
+            var currentYear=date1.getFullYear();
+            
+            
+
+            function checkDate(){
+                var date=new Date(document.getElementById("selectDate").value);
+                console.log(date);
+                var myDate=date.getDate();
+                var myMonth=date.getMonth()+1;
+                var myYear=date.getFullYear();
+                var myHour=date.getHours();
+                var myMinutes=date.getMinutes();
+                var mySec=date.getSeconds();
+
+               // var day=currentDate-myDate;
+                var year=currentYear-myYear;
+                var month=currentMonth-myMonth;
+                
+
+                console.log("Current:" + currentDate +","+currentMonth+", "+currentYear+","+currentHour+","+currentMinutes+","+currentSec);
+                console.log("MyDate:" + myDate +","+myMonth+", "+myYear+","+myHour+","+myMinutes+","+mySec);
+                //console.log("Difference: " +  " "+ year+ " "+month + " "+hour+ " "+mints+" "+sec);
+
+                if(year==0 && month==0){
+                    var day= currentDate-myDate;
+            
+                    var hour=currentHour-myHour;
+                    var mints=currentMinutes-myMinutes;
+                    var sec=currentSec-mySec;
+
+                    if(hour==0 && mints==0 && day===0){
+                            document.getElementById("mydate").innerHTML="Just Now";
+                        }
+                    if(sec<60 && day==0){
+                        if(currentMinutes<myMinutes || currentHour<myHour){
+                            document.getElementById("mydate").innerHTML="Incorrect Date or Time";
+                        }    
+                    }
+                    if(sec>=60 && day==0){
+                        document.getElementById("mydate").innerHTML=mints+ " "+"1 minute ago";
+                    }
+                    if(mints>=1 && mints<=59 && day==0){
+                            document.getElementById("mydate").innerHTML=mints+ " "+"minutes ago";             
+                    }    
+                    
+                    if(hour>=1){
+                        if(hour ==1 && mints<0){
+                                var mints1=mints+60
+                                document.getElementById("mydate").innerHTML=mints1+ " "+"minutes ago";
+                        } 
+                        else{
+                            document.getElementById("mydate").innerHTML=hour+ " "+"hour ago";
+                        }
+                        
+                    }
+                    
+                    if(day<0){
+                        document.getElementById("mydate").innerHTML="Incorrect Date";
+                    }
+                    if(day>0 && day<=30){
+                        document.getElementById("mydate").innerHTML=day +"day(s)"+ "ago";
+                    }
+                }
+
+                if(year==0 && month<0){
+                    document.getElementById("mydate").innerHTML="Incorrect Date or Time";
+                }
+
+                if(year<0){
+                    document.getElementById("mydate").innerHTML="Incorrect Date or Time";
+                }
+
+                if(year==1){
+                    if(month<0){
+                        var month=month+12;
+                        document.getElementById("mydate").innerHTML=month+" " +"month(s) ago";
+                    }
+                    if(month==0){
+                        document.getElementById("mydate").innerHTML="1 year ago";
+                    }
+
+                }
+                
+                if(year>1){
+                    document.getElementById("mydate").innerHTML=+year+" years ago";
+                }
+            
+            }
+            
+        </script>
+    </body>
+</html>
