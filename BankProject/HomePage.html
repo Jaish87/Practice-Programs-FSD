@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <style>
+            h2{
+                text-align: center;
+                color: darkolivegreen;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <h2> Welcome to Bank System Application!</h2>
+        <hr>
+        <form id="form">
+      <span> Withdraw Money :</span>&nbsp;<input type="text" id="wAmount" placeholder="Enter Amount "> &nbsp;&nbsp;  <button onclick="withdraw()">Withdraw</button> &nbsp;&nbsp; <span id="withdraw"></span><br><br>
+      <span> Deposit Money :</span>&nbsp;<input type="text" id="dAmount" placeholder="Enter Amount "> &nbsp;&nbsp;  <button onclick="deposit()">Deposit</button>&nbsp;&nbsp; <span id="deposit"></span> <br><br>
+      <span> Transfer Money :</span>&nbsp;<input type="text" id="tAmount" placeholder="Enter Amount "> &nbsp;&nbsp; <input type="text" id="customerid" placeholder="Enter Customer ID "> &nbsp;&nbsp; <button onclick="transfer()">Transfer</button> &nbsp;&nbsp; <span id="transfer"></span><br><br>
+        <script src="data.js"></script>
+       </form>
+    </body>
+</html>

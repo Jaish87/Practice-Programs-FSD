@@ -1,0 +1,16 @@
+
+<html>
+    <head></head>
+    <body>
+        <input type="password" placeholder="oldpassword">
+        <input type="password" placeholder="newpassword">
+        <input id="pw" type="password" placeholder="confirmpassword" onpaste="return noPaste()">
+    </body>
+    <script>
+        function noPaste(){
+           alert("Pasting not allowed");
+            return false;
+           // document.getElementById(pw).value=" ";
+        }
+    </script>
+</html>

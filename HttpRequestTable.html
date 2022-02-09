@@ -1,7 +1,7 @@
 <html>
     <head></head>
     <body>
-        <table></table>
+        <table border=></table>
         <script>
             var details;
             var httpRequest=new XMLHttpRequest();
@@ -23,6 +23,7 @@
                 var thead= table.createTHead();
                 var row=thead.insertRow();
                 for(var key of data){
+                    
                     var th=document.createElement("th");
                     var text=document.createTextNode(key);
                     th.appendChild(text);
@@ -32,10 +33,12 @@
             function generateTable(table,details1){
                 
                 for(var element of details1){
+                    
                     var row=table.insertRow();
-                    for(var key in element){
+                    for(var value in element){
                         var cell=row.insertCell();
-                        var text=document.createTextNode(element[key]);
+                        var text=document.createTextNode(element[value]);
+                       
                         cell.appendChild(text);
                     }
                 }
